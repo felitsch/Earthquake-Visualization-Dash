@@ -27,3 +27,9 @@ wbdata==0.3.0
 Werkzeug==2.2.3
 gunicorn
 openpyxl
+requests
+dash_renderer
+dash-html-components
+dash-core-components
+pandas
+numpy
