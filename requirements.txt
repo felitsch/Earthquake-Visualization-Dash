@@ -26,3 +26,4 @@ urllib3==1.26.15
 wbdata==0.3.0
 Werkzeug==2.2.3
 gunicorn
+openpyxl
