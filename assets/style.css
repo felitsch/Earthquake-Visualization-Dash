@@ -1,0 +1,70 @@
+/* Set font family and font size for all text */
+* {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Set background color for entire page */
+body {
+    background-color: #2a3f5f;
+}
+
+/* Set font color for all text */
+body, label, input, select, option, button, a {
+    color: #f0f0f0;
+}
+
+/* Set font color for plot titles */
+.gtitle {
+    fill: #f0f0f0;
+}
+
+/* Set font color for plot axis labels */
+.g-xtitle, .g-ytitle {
+    fill: #f0f0f0;
+}
+
+/* Set font color for plot axis tick labels */
+.g-xtick, .g-ytick {
+    fill: #f0f0f0;
+}
+
+/* Set color for plot grid lines */
+.g-line {
+    stroke: #4c4c4c;
+}
+
+/* Set color for plot shapes */
+.g-fill {
+    fill: #0072B2;
+}
+
+/* Set color for plot marker outlines */
+.g-marker {
+    stroke: #f0f0f0;
+}
+
+/* Set color for plot legend text */
+.legendtext, .legendtitle {
+    fill: #f0f0f0;
+}
+
+/* Set color for plot legend background */
+.legend {
+    background-color: #4c4c4c;
+}
+
+/* Set color for plot background */
+.plot-bg {
+    fill: #2a3f5f;
+}
+
+/* Set color for plot border */
+.plot-border {
+    stroke: #f0f0f0;
+}
+
+/* Set color for plot annotations */
+.g-annotation {
+    fill: #f0f0f0;
+}
