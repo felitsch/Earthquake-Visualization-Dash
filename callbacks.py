@@ -33,6 +33,7 @@ def register_callbacks(app):
     )
     def update_figure(selected_layer):
         new_fig = go.Figure()
+        new_fig.update_traces(mode='none')
     
         if selected_layer == 'plates' or selected_layer == 'both':
             add_tectonic_plates_layer(new_fig, tectonic_plates)
@@ -156,7 +157,7 @@ def register_callbacks(app):
                                             'Year: %{x}<br>' +
                                             'Magnitude: %{customdata:.2f}<br>' +
                                             'Focal Depth: %{marker.color:.2f}',
-                                customdata=data['Magnitude'],
+                                customdata=data_specific['Magnitude'],
                                 hoverinfo='y')
 
         return fig_depth
