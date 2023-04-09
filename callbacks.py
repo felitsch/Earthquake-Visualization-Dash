@@ -204,10 +204,17 @@ def register_callbacks(app):
                             name=graph_id,
                             showlegend=False)
 
-            layout = go.Layout(title=dict(text=f'Cumulative {label.split(":")[-1].strip()} over Time'),
-                            xaxis=dict(title='Year'),
-                            yaxis=dict(title=label),
-                            template="plotly_dark")
+            # layout = go.Layout(title=dict(text=f'Cumulative {label.split(":")[-1].strip()} over Time'),
+            #                 xaxis=dict(title='Year'),
+            #                 yaxis=dict(title=label),
+            #                 template="plotly_dark")
+
+            layout = go.Layout(title=dict(text=f'Cumulative {label.split(":")[-1].strip()} over Time<br><b>{country}</b>',
+                              font=dict(size=18)),
+                    xaxis=dict(title='Year'),
+                    yaxis=dict(title=label),
+                    template="plotly_dark")
+
 
             fig = go.Figure(data=[trace], layout=layout)
             figures.append(fig)

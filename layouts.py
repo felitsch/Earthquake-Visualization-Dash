@@ -72,26 +72,76 @@ num_earthquakes.update_layout(
 # defining stacked bar chart
 ################################################################
 
-# Create a stacked bar chart
-stacked_bar = px.bar(humanAct_1, x='Year', y='Number of recorded earthquakes', color='Earthquake cause (main class)', 
-                     template="plotly_dark", barmode='stack')
+# # Create a stacked bar chart
+# stacked_bar = px.bar(humanAct_1, x='Year', y='Number of recorded earthquakes', color='Earthquake cause (main class)', 
+#                      template="plotly_dark", barmode='stack')
 
-# Customizing the axis labels and adding a title
-stacked_bar.update_xaxes(title='Year')
-stacked_bar.update_yaxes(title='Cumulative Number of recorded human induced earthquakes')
-stacked_bar.update_layout(title='Human-induced Earthquakes by Year and Cause (Stacked Bar Chart)')
+# # Customizing the axis labels and adding a title
+# stacked_bar.update_xaxes(title='Year')
+# stacked_bar.update_yaxes(title='Cumulative Number of recorded human induced earthquakes')
+# stacked_bar.update_layout(title='Human-induced Earthquakes by Year and Cause (Stacked Bar Chart)')
 
 ########################################################################
 # defining line chcart
 ########################################################################
+# # Create a line chart
+# line_chart = px.line(humanAct_1, x='Year', y='Number of recorded earthquakes', color='Earthquake cause (main class)', 
+#                      template="plotly_dark")
+
+# # Customizing the axis labels and adding a title
+# line_chart.update_xaxes(title='Year')
+# line_chart.update_yaxes(title='Number of recorded human-induced earthquakes')
+# line_chart.update_layout(title='Human-induced Earthquakes by Year and Cause')
+
 # Create a line chart
 line_chart = px.line(humanAct_1, x='Year', y='Number of recorded earthquakes', color='Earthquake cause (main class)', 
                      template="plotly_dark")
 
 # Customizing the axis labels and adding a title
 line_chart.update_xaxes(title='Year')
-line_chart.update_yaxes(title='Number of recorded human-induced earthquakes')
+line_chart.update_yaxes(title='Number of recorded human-induced earthquakes', rangemode='tozero')
 line_chart.update_layout(title='Human-induced Earthquakes by Year and Cause')
+
+# Color scale: Different colors for each cause
+color_scale = {
+    'Conventional Oil and Gas': 'rgba(251, 98, 94, 1)',
+    'Fracking': 'rgba(246, 144, 44, 1)',
+    'Geothermal': 'rgba(107, 79, 163, 1)',
+    'Mining': 'rgba(71, 174, 87, 1)',
+    'Oil and Gas': 'rgba(59, 216, 203, 1)',
+    'Waste fluid disposal': 'rgba(142, 53, 215, 1)',
+    'Water reservoir impoundment': 'rgba(29, 121, 227, 1)'
+}
+
+# Categories to hide
+categories_to_hide = ['Research', 'Nuclear explosions', 'Groundwater extraction', 'Construction', 'Oil and Gas/Waste fluid injection']
+
+# Update colors and hide specific categories, remove them from the legend
+new_data = []
+for trace in line_chart.data:
+    trace_name = trace.name.replace("Earthquake cause (main class)=", "")
+    if trace_name not in categories_to_hide:
+        trace.line.color = color_scale[trace_name]
+        new_data.append(trace)
+
+line_chart.data = tuple(new_data)
+
+# Update legend items
+line_chart.update_layout(
+    legend=go.layout.Legend(
+        itemsizing="constant",
+        bgcolor="rgba(0,0,0,0.75)",
+        bordercolor="rgba(255,255,255,0.5)",
+        borderwidth=0.5,
+        font=dict(
+            color="white"
+        )
+    )
+)
+
+
+
+
 
 
 
