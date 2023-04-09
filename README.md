@@ -1,8 +1,8 @@
 # Shaking Up the World: Exploring Natural and Human-Induced Earthquakes - Dashboard
 
 This repository contains the source code and data for the Earthquake Dashboard web application.
-The dashboard can be viewed under the following link: 
-shaking-up-the-world-exploring-natural.onrender.com
+The Dashboard can be viewed under this [link](https://shaking-up-the-world-exploring-natural.onrender.com/).
+
 
 ## Files and Folders
 
